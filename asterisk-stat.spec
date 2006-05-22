@@ -19,7 +19,7 @@ Source0:	http://areski.net/%{name}-v2/%{name}-v%{srcversion}.tar.gz
 #Source1:	%{name}.conf
 #Source2:	%{name}-config.php
 #Patch0:	%{name}-config.patch
-URL:		http://areski.net/asterisk-stat-v2/about.php	
+URL:		http://areski.net/asterisk-stat-v2/about.php
 BuildRequires:	rpm-perlprov
 Requires:	php
 Requires:	php-cli
@@ -37,9 +37,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_appdir		%{_datadir}/%{_webapp}
 
 %description
-Asterisk-Stat is providing different reports & Graph to allow
-the Asterisk-admin to analyse quickly and easily the traffic on their Asterisk server.
-All the graphic & reports are based over the CDR database.
+Asterisk-Stat is providing different reports & Graph to allow the
+Asterisk-admin to analyse quickly and easily the traffic on their
+Asterisk server. All the graphic & reports are based over the CDR
+database.
 
 %description -l pl
 
