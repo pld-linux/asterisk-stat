@@ -16,7 +16,7 @@ License:	-
 Group:		Applications/WWW
 Source0:	http://areski.net/%{name}-v2/%{name}-v%{srcversion}.tar.gz
 # Source0-md5:	aad3fe2f9826e8d63dfc9bdea2315d4a
-#Source1:	%{name}.conf
+Source1:	%{name}.conf
 #Source2:	%{name}-config.php
 #Patch0:	%{name}-config.patch
 URL:		http://areski.net/asterisk-stat-v2/about.php
