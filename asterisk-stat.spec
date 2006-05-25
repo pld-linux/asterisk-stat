@@ -12,22 +12,22 @@ Summary(pl):	Asterisk-Stat: Analizator CDR
 Name:		asterisk-stat
 Version:	2.0.1
 Release:	0.1
-License:	-
+License:	? (contains Freeware, LGPL, QPL parts)
 Group:		Applications/WWW
-Source0:	http://areski.net/%{name}-v2/%{name}-v%{srcversion}.tar.gz
+Source0:	http://areski.net/asterisk-stat-v2/%{name}-v%{srcversion}.tar.gz
 # Source0-md5:	aad3fe2f9826e8d63dfc9bdea2315d4a
 Source1:	%{name}.conf
 #Source2:	%{name}-config.php
 #Patch0:	%{name}-config.patch
 URL:		http://areski.net/asterisk-stat-v2/about.php
 BuildRequires:	rpm-perlprov
+Requires:	jpgraph
 Requires:	php
 Requires:	php-cli
 Requires:	php-gd
 Requires:	php-mysql
-Requires:	webserver
 Requires:	webapps
-Requires:	jpgraph
+Requires:	webserver
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -43,14 +43,16 @@ Asterisk server. All the graphic & reports are based over the CDR
 database.
 
 %description -l pl
+Asterisk-Stat udostêpnia ró¿ne raporty i wykresy pozwalaj±ce
+administratorowi Asteriska szybko i ³atwo przeanalizowaæ ruch na
+serwerze Asteriska. Wszystkie wykresy i raporty s± oparte na bazie
+danych CDR.
 
 %prep
 %setup -q -n %{name}-v2
 #%patch0 -p1
 
 find '(' -name '*.php' -o -name '*.inc' ')' -print0 | xargs -0 sed -i -e 's,\r$,,'
-
-%build
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -60,7 +62,7 @@ cp -aRf * $RPM_BUILD_ROOT%{_appdir}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_webappdir}/apache.conf
 install %{SOURCE1} $RPM_BUILD_ROOT%{_webappdir}/httpd.conf
-install %{SOURCE2} $RPM_BUILD_ROOT%{sysconfdir}/%{name}/
+install %{SOURCE2} $RPM_BUILD_ROOT%{sysconfdir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
