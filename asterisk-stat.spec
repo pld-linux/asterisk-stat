@@ -73,8 +73,6 @@ Asterisk-stat.
 Ten wirtualny pakiet dostarcza backend bazy danych PostgreSQL dla
 Asterisk-stat.
 
-
-
 %prep
 %setup -q -n %{name}-v2
 %patch0 -p1
