@@ -21,7 +21,7 @@ diff -uNr asterisk-stat-v2.orig/lib/defines.php asterisk-stat-v2/lib/defines.php
 -
 -
 -define ("DB_TABLENAME", "cdr");
-+include ("/etc/asterisk-stat/config.php");
++include ("/etc/webapps/asterisk-stat/config.php");
   
  // Regarding to the dst you can setup an application name
  // Make more sense to have a text that just a number
