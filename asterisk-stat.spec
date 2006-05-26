@@ -1,7 +1,6 @@
 # TODO
 # - remove jgraph from source
 # - license
-# - move application config to webapps dir (redefine _sysconfdir to webappdir)
 
 %define		srcversion	2_0_1
 Summary:	Asterisk-Stat: CDR Analyser
@@ -90,7 +89,7 @@ cp -aRf * $RPM_BUILD_ROOT%{_appdir}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_webappdir}/apache.conf
 install %{SOURCE1} $RPM_BUILD_ROOT%{_webappdir}/httpd.conf
-install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/config.php
+install %{SOURCE2} $RPM_BUILD_ROOT%{_webappdir}/config.php
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -110,7 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGELOG.txt
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/config.php
+%config(noreplace) %verify(not md5 mtime size) %{_webappdir}/config.php
 %config(noreplace) %verify(not md5 mtime size) %{_webappdir}/apache.conf
 %config(noreplace) %verify(not md5 mtime size) %{_webappdir}/httpd.conf
 %{_datadir}/%{name}
