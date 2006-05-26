@@ -1,10 +1,10 @@
-#
-#TODO - remove jgroph from source
-#TODO - Subpackage for databases?
-#TODO - license
+# TODO
+# - remove jgraph from source
+# - Subpackage for databases?
+# - license
+# - move application config to webapps dir (redefine _sysconfdir to webappdir)
 
 %define		srcversion	2_0_1
-
 Summary:	Asterisk-Stat: CDR Analyser
 Summary(pl):	Asterisk-Stat: Analizator CDR
 Name:		asterisk-stat
