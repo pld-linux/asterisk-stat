@@ -1,10 +1,10 @@
 
-define ("WEBROOT", "http://domainname.com/asterisk-stat/");
-define ("FSROOT", "/var/www/html/HTTP2/Asterisk/asterisk-stat-v2/");
+define ("WEBROOT", "http://localhost/asterisk-stat/");
+define ("FSROOT", "/usr/share/asterisk-stat/");
 
 define ("LIBDIR", FSROOT."lib/");
 
-define ("HOST", "localhost");
+define ("HOST", "localhost"); //database host
 define ("PORT", "5432");
 define ("USER", "postgres");
 define ("PASS", "");
