@@ -1,0 +1,27 @@
+diff -uNr asterisk-stat-v2.orig/lib/defines.php asterisk-stat-v2/lib/defines.php
+--- asterisk-stat-v2.orig/lib/defines.php	2006-05-26 12:08:59.000000000 +0200
++++ asterisk-stat-v2/lib/defines.php	2006-05-26 12:22:44.000000000 +0200
+@@ -1,22 +1,6 @@
+ <?php
+ 
+-define ("WEBROOT", "http://domainname.com/asterisk-stat/");
+-define ("FSROOT", "/var/www/html/HTTP2/Asterisk/asterisk-stat-v2/");
+-
+-
+-
+-define ("LIBDIR", FSROOT."lib/");
+-
+-
+-define ("HOST", "localhost");
+-define ("PORT", "5432");
+-define ("USER", "postgres");
+-define ("PASS", "");
+-define ("DBNAME", "cdrasterisk");
+-define ("DB_TYPE", "postgres"); // mysql or postgres
+-
+-
+-define ("DB_TABLENAME", "cdr");
++include ("/etc/asterisk-stat/config.php");
+  
+ // Regarding to the dst you can setup an application name
+ // Make more sense to have a text that just a number
