@@ -1,6 +1,4 @@
 #
-#TODO - webapps
-#TODO - patch - include in /usr/share/asterisk-stat/lib/defines.php and add file in SOURCES
 #TODO - remove jgroph from source
 #TODO - Subpackage for databases?
 #TODO - license
@@ -17,8 +15,8 @@ Group:		Applications/WWW
 Source0:	http://areski.net/asterisk-stat-v2/%{name}-v%{srcversion}.tar.gz
 # Source0-md5:	aad3fe2f9826e8d63dfc9bdea2315d4a
 Source1:	%{name}.conf
-#Source2:	%{name}-config.php
-#Patch0:	%{name}-config.patch
+Source2:	%{name}-config.php
+Patch0:		%{name}-config.patch
 URL:		http://areski.net/asterisk-stat-v2/about.php
 BuildRequires:	rpm-perlprov
 Requires:	jpgraph
@@ -50,7 +48,7 @@ danych CDR.
 
 %prep
 %setup -q -n %{name}-v2
-#%patch0 -p1
+%patch0 -p1
 
 find '(' -name '*.php' -o -name '*.inc' ')' -print0 | xargs -0 sed -i -e 's,\r$,,'
 
@@ -62,7 +60,7 @@ cp -aRf * $RPM_BUILD_ROOT%{_appdir}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_webappdir}/apache.conf
 install %{SOURCE1} $RPM_BUILD_ROOT%{_webappdir}/httpd.conf
-install %{SOURCE2} $RPM_BUILD_ROOT%{sysconfdir}/%{name}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/config.php
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -82,5 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGELOG.txt
-#%%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/%{name}-config.php
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{name}/config.php
+%config(noreplace) %verify(not md5 mtime size) %{_webappdir}/apache.conf
+%config(noreplace) %verify(not md5 mtime size) %{_webappdir}/httpd.conf
 %{_datadir}/%{name}
