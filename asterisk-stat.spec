@@ -1,6 +1,5 @@
 # TODO
 # - remove jgraph from source
-# - Subpackage for databases?
 # - license
 # - move application config to webapps dir (redefine _sysconfdir to webappdir)
 
@@ -19,11 +18,11 @@ Source2:	%{name}-config.php
 Patch0:		%{name}-config.patch
 URL:		http://areski.net/asterisk-stat-v2/about.php
 BuildRequires:	rpm-perlprov
+Requires:	%{name}(DB_Driver) = %{version}-%{release}
 Requires:	jpgraph
 Requires:	php
 Requires:	php-cli
 Requires:	php-gd
-Requires:	php-mysql
 Requires:	webapps
 Requires:	webserver
 BuildArch:	noarch
@@ -45,6 +44,37 @@ Asterisk-Stat udostêpnia ró¿ne raporty i wykresy pozwalaj±ce
 administratorowi Asteriska szybko i ³atwo przeanalizowaæ ruch na
 serwerze Asteriska. Wszystkie wykresy i raporty s± oparte na bazie
 danych CDR.
+
+%package db-mysql
+Summary:	Asterisk-stat DB Driver for MySQL
+Summary(pl):	Sterownik bazy danych MySQL dla Asterisk-stat
+Group:		Applications/WWW
+Requires:	php-mysql < 4:5.0.0
+Provides:	%{name}(DB_Driver) = %{version}-%{release}
+
+%description db-mysql
+This virtual package provides MySQL database backend for Asterisk-stat.
+
+%description db-mysql -l pl
+Ten wirtualny pakiet dostarcza backend bazy danych MySQL dla
+Asterisk-stat.
+
+%package db-pgsql
+Summary:	Asterisk-stat DB Driver for PostgreSQL
+Summary(pl):	Sterownik bazy danych PostgreSQL dla Asterisk-stat
+Group:		Applications/WWW
+Requires:	php-pgsql < 4:5.0.0
+Provides:	%{name}(DB_Driver) = %{version}-%{release}
+
+%description db-pgsql
+This virtual package provides PostgreSQL database backend for
+Asterisk-stat.
+
+%description db-pgsql -l pl
+Ten wirtualny pakiet dostarcza backend bazy danych PostgreSQL dla
+Asterisk-stat.
+
+
 
 %prep
 %setup -q -n %{name}-v2
@@ -84,3 +114,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{_webappdir}/apache.conf
 %config(noreplace) %verify(not md5 mtime size) %{_webappdir}/httpd.conf
 %{_datadir}/%{name}
+
+%files db-mysql
+%defattr(644,root,root,755)
+
+%files db-pgsql
+%defattr(644,root,root,755)
