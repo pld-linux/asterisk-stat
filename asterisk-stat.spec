@@ -7,7 +7,7 @@ Summary:	Asterisk-Stat: CDR Analyser
 Summary(pl):	Asterisk-Stat: Analizator CDR
 Name:		asterisk-stat
 Version:	2.0.1
-Release:	0.1
+Release:	0.2
 License:	? (contains Freeware, LGPL, QPL parts)
 Group:		Applications/WWW
 Source0:	http://areski.net/asterisk-stat-v2/%{name}-v%{srcversion}.tar.gz
@@ -17,7 +17,9 @@ Source2:	%{name}-config.php
 Patch0:		%{name}-config.patch
 URL:		http://areski.net/asterisk-stat-v2/about.php
 BuildRequires:	rpm-perlprov
+BuildRequires:	rpmbuild(macros) >= 1.264
 Requires:	%{name}(DB_Driver) = %{version}-%{release}
+Requires:	adodb >= 4.67-1.17
 Requires:	jpgraph
 Requires:	php
 Requires:	php-cli
@@ -48,7 +50,7 @@ danych CDR.
 Summary:	Asterisk-stat DB Driver for MySQL
 Summary(pl):	Sterownik bazy danych MySQL dla Asterisk-stat
 Group:		Applications/WWW
-Requires:	php-mysql < 4:5.0.0
+Requires:	php-mysql
 Provides:	%{name}(DB_Driver) = %{version}-%{release}
 
 %description db-mysql
@@ -62,7 +64,7 @@ Asterisk-stat.
 Summary:	Asterisk-stat DB Driver for PostgreSQL
 Summary(pl):	Sterownik bazy danych PostgreSQL dla Asterisk-stat
 Group:		Applications/WWW
-Requires:	php-pgsql < 4:5.0.0
+Requires:	php-pgsql
 Provides:	%{name}(DB_Driver) = %{version}-%{release}
 
 %description db-pgsql
@@ -107,7 +109,8 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGELOG.txt
-%config(noreplace) %verify(not md5 mtime size) %{_webappdir}/config.php
+%dir %attr(750,root,http) %{_webappdir}
+%attr(640,root,http) %config(noreplace) %verify(not md5 mtime size) %{_webappdir}/config.php
 %config(noreplace) %verify(not md5 mtime size) %{_webappdir}/apache.conf
 %config(noreplace) %verify(not md5 mtime size) %{_webappdir}/httpd.conf
 %{_datadir}/%{name}
