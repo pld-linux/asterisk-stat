@@ -1,0 +1,60 @@
+diff -uNr asterisk-stat-v2.orig/graph_hourdetail.php asterisk-stat-v2/graph_hourdetail.php
+--- asterisk-stat-v2.orig/graph_hourdetail.php	2005-03-07 11:25:54.000000000 +0100
++++ asterisk-stat-v2/graph_hourdetail.php	2006-05-27 17:42:33.000000000 +0200
+@@ -1,9 +1,9 @@
+ <?php
+ include_once(dirname(__FILE__) . "/lib/defines.php");
+ include_once(dirname(__FILE__) . "/lib/Class.Table.php");
+-include_once(dirname(__FILE__) . "/jpgraph_lib/jpgraph.php");
+-include_once(dirname(__FILE__) . "/jpgraph_lib/jpgraph_line.php");
+-include_once(dirname(__FILE__) . "/jpgraph_lib/jpgraph_bar.php");
++include_once(dirname(__FILE__) . "/usr/share/php/jpgraph/jpgraph.php");
++include_once(dirname(__FILE__) . "/usr/share/php/jpgraph/jpgraph_line.php");
++include_once(dirname(__FILE__) . "/usr/share/php/jpgraph/jpgraph_bar.php");
+ 
+ 
+ // this variable specifie the debug type (0 => nothing, 1 => sql result, 2 => boucle checking, 3 other value checking)
+diff -uNr asterisk-stat-v2.orig/graph_pie.php asterisk-stat-v2/graph_pie.php
+--- asterisk-stat-v2.orig/graph_pie.php	2005-03-07 20:01:27.000000000 +0100
++++ asterisk-stat-v2/graph_pie.php	2006-05-27 17:42:33.000000000 +0200
+@@ -1,9 +1,9 @@
+ <?php
+ include_once(dirname(__FILE__) . "/lib/defines.php");
+ include_once(dirname(__FILE__) . "/lib/Class.Table.php");
+-include_once(dirname(__FILE__) . "/jpgraph_lib/jpgraph.php");
+-include_once(dirname(__FILE__) . "/jpgraph_lib/jpgraph_pie.php");
+-include_once(dirname(__FILE__) . "/jpgraph_lib/jpgraph_pie3d.php");
++include_once(dirname(__FILE__) . "/usr/share/php/jpgraph/jpgraph.php");
++include_once(dirname(__FILE__) . "/usr/share/php/jpgraph/jpgraph_pie.php");
++include_once(dirname(__FILE__) . "/usr/share/php/jpgraph/jpgraph_pie3d.php");
+ 
+ 
+ /*
+diff -uNr asterisk-stat-v2.orig/graph_statbar.php asterisk-stat-v2/graph_statbar.php
+--- asterisk-stat-v2.orig/graph_statbar.php	2005-03-07 20:05:34.000000000 +0100
++++ asterisk-stat-v2/graph_statbar.php	2006-05-27 17:42:33.000000000 +0200
+@@ -1,8 +1,8 @@
+ <?php
+ include_once(dirname(__FILE__) . "/lib/defines.php");
+ include_once(dirname(__FILE__) . "/lib/Class.Table.php");
+-include_once(dirname(__FILE__) . "/jpgraph_lib/jpgraph.php");
+-include_once(dirname(__FILE__) . "/jpgraph_lib/jpgraph_bar.php");
++include_once(dirname(__FILE__) . "/usr/share/php/jpgraph/jpgraph.php");
++include_once(dirname(__FILE__) . "/usr/share/php/jpgraph/jpgraph_bar.php");
+ 
+ // this variable specifie the debug type (0 => nothing, 1 => sql result, 2 => boucle checking, 3 other value checking)
+ $FG_DEBUG = 0;
+diff -uNr asterisk-stat-v2.orig/graph_stat.php asterisk-stat-v2/graph_stat.php
+--- asterisk-stat-v2.orig/graph_stat.php	2005-03-07 20:00:32.000000000 +0100
++++ asterisk-stat-v2/graph_stat.php	2006-05-27 17:42:33.000000000 +0200
+@@ -1,8 +1,8 @@
+ <?php
+ include_once(dirname(__FILE__) . "/lib/defines.php");
+ include_once(dirname(__FILE__) . "/lib/Class.Table.php");
+-include_once(dirname(__FILE__) . "/jpgraph_lib/jpgraph.php");
+-include_once(dirname(__FILE__) . "/jpgraph_lib/jpgraph_line.php");
++include_once(dirname(__FILE__) . "/usr/share/php/jpgraph/jpgraph.php");
++include_once(dirname(__FILE__) . "/usr/share/php/jpgraph/jpgraph_line.php");
+ 
+ // this variable specifie the debug type (0 => nothing, 1 => sql result, 2 => boucle checking, 3 other value checking)
+ $FG_DEBUG = 0;
