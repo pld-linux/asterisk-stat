@@ -1,13 +1,11 @@
 # TODO
-# - remove jgraph from source
 # - license
-
 %define		srcversion	2_0_1
 Summary:	Asterisk-Stat: CDR Analyser
 Summary(pl):	Asterisk-Stat: Analizator CDR
 Name:		asterisk-stat
 Version:	2.0.1
-Release:	0.2
+Release:	0.3
 License:	? (contains Freeware, LGPL, QPL parts)
 Group:		Applications/WWW
 Source0:	http://areski.net/asterisk-stat-v2/%{name}-v%{srcversion}.tar.gz
@@ -15,6 +13,7 @@ Source0:	http://areski.net/asterisk-stat-v2/%{name}-v%{srcversion}.tar.gz
 Source1:	%{name}.conf
 Source2:	%{name}-config.php
 Patch0:		%{name}-config.patch
+Patch1:		%{name}-jpgraph.patch
 URL:		http://areski.net/asterisk-stat-v2/about.php
 BuildRequires:	rpm-perlprov
 BuildRequires:	rpmbuild(macros) >= 1.264
@@ -78,13 +77,14 @@ Asterisk-stat.
 %prep
 %setup -q -n %{name}-v2
 %patch0 -p1
+%patch1 -p1
 
 find '(' -name '*.php' -o -name '*.inc' ')' -print0 | xargs -0 sed -i -e 's,\r$,,'
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_appdir},%{_webappdir},%{_sysconfdir}/%{name}}
-
+rm -drf jpgraph_lib
 cp -aRf * $RPM_BUILD_ROOT%{_appdir}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_webappdir}/apache.conf
