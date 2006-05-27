@@ -30,7 +30,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_webapps	/etc/webapps
 %define		_webapp		%{name}
-%define		_webappdir	%{_webapps}/%{_webapp}
+%define		_sysconfdir	%{_webapps}/%{_webapp}
 %define		_appdir		%{_datadir}/%{_webapp}
 
 %description
@@ -84,12 +84,12 @@ find '(' -name '*.php' -o -name '*.inc' ')' -print0 | xargs -0 sed -i -e 's,\r$,
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_appdir},%{_webappdir},%{_sysconfdir}/%{name}}
+install -d $RPM_BUILD_ROOT{%{_appdir},%{_sysconfdir}}
 cp -aRf * $RPM_BUILD_ROOT%{_appdir}
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_webappdir}/apache.conf
-install %{SOURCE1} $RPM_BUILD_ROOT%{_webappdir}/httpd.conf
-install %{SOURCE2} $RPM_BUILD_ROOT%{_webappdir}/config.php
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
+install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/config.php
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -109,11 +109,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGELOG.txt
-%dir %attr(750,root,http) %{_webappdir}
-%attr(640,root,http) %config(noreplace) %verify(not md5 mtime size) %{_webappdir}/config.php
-%config(noreplace) %verify(not md5 mtime size) %{_webappdir}/apache.conf
-%config(noreplace) %verify(not md5 mtime size) %{_webappdir}/httpd.conf
-%{_datadir}/%{name}
+%dir %attr(750,root,http) %{_sysconfdir}
+%attr(640,root,http) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/config.php
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/apache.conf
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httpd.conf
+%{_appdir}
 
 %files db-mysql
 %defattr(644,root,root,755)
