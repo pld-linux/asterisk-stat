@@ -1,4 +1,4 @@
-
+<?php
 define ("WEBROOT", "http://localhost/asterisk-stat/");
 define ("FSROOT", "/usr/share/asterisk-stat/");
 
@@ -12,3 +12,4 @@ define ("DBNAME", "cdrasterisk");
 define ("DB_TYPE", "postgres"); // mysql or postgres
 
 define ("DB_TABLENAME", "cdr");
+?>
