@@ -79,12 +79,12 @@ Asterisk-stat.
 %patch0 -p1
 %patch1 -p1
 
+rm -drf jpgraph_lib
 find '(' -name '*.php' -o -name '*.inc' ')' -print0 | xargs -0 sed -i -e 's,\r$,,'
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_appdir},%{_webappdir},%{_sysconfdir}/%{name}}
-rm -drf jpgraph_lib
 cp -aRf * $RPM_BUILD_ROOT%{_appdir}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_webappdir}/apache.conf
