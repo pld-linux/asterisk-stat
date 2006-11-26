@@ -5,7 +5,7 @@ Summary:	Asterisk-Stat: CDR Analyser
 Summary(pl):	Asterisk-Stat: Analizator CDR
 Name:		asterisk-stat
 Version:	2.0.1
-Release:	0.3
+Release:	0.4
 License:	? (contains Freeware, LGPL, QPL parts)
 Group:		Applications/WWW
 Source0:	http://areski.net/asterisk-stat-v2/%{name}-v%{srcversion}.tar.gz
@@ -20,11 +20,11 @@ BuildRequires:	rpmbuild(macros) >= 1.264
 Requires:	%{name}(DB_Driver) = %{version}-%{release}
 Requires:	adodb >= 4.67-1.17
 Requires:	jpgraph
-Requires:	php
+Requires:	php(gd)
 Requires:	php-cli
-Requires:	php-gd
 Requires:	webapps
 Requires:	webserver
+Requires:	webserver(php)
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -49,11 +49,12 @@ danych CDR.
 Summary:	Asterisk-stat DB Driver for MySQL
 Summary(pl):	Sterownik bazy danych MySQL dla Asterisk-stat
 Group:		Applications/WWW
-Requires:	php-mysql
+Requires:	php(mysql)
 Provides:	%{name}(DB_Driver) = %{version}-%{release}
 
 %description db-mysql
-This virtual package provides MySQL database backend for Asterisk-stat.
+This virtual package provides MySQL database backend for
+Asterisk-stat.
 
 %description db-mysql -l pl
 Ten wirtualny pakiet dostarcza backend bazy danych MySQL dla
@@ -63,7 +64,7 @@ Asterisk-stat.
 Summary:	Asterisk-stat DB Driver for PostgreSQL
 Summary(pl):	Sterownik bazy danych PostgreSQL dla Asterisk-stat
 Group:		Applications/WWW
-Requires:	php-pgsql
+Requires:	php(pgsql)
 Provides:	%{name}(DB_Driver) = %{version}-%{release}
 
 %description db-pgsql
