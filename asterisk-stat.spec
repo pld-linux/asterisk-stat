@@ -2,7 +2,7 @@
 # - license
 %define		srcversion	2_0_1
 Summary:	Asterisk-Stat: CDR Analyser
-Summary(pl):	Asterisk-Stat: Analizator CDR
+Summary(pl.UTF-8):   Asterisk-Stat: Analizator CDR
 Name:		asterisk-stat
 Version:	2.0.1
 Release:	0.4
@@ -39,15 +39,15 @@ Asterisk-admin to analyse quickly and easily the traffic on their
 Asterisk server. All the graphic & reports are based over the CDR
 database.
 
-%description -l pl
-Asterisk-Stat udostêpnia ró¿ne raporty i wykresy pozwalaj±ce
-administratorowi Asteriska szybko i ³atwo przeanalizowaæ ruch na
-serwerze Asteriska. Wszystkie wykresy i raporty s± oparte na bazie
+%description -l pl.UTF-8
+Asterisk-Stat udostÄ™pnia rÃ³Å¼ne raporty i wykresy pozwalajÄ…ce
+administratorowi Asteriska szybko i Å‚atwo przeanalizowaÄ‡ ruch na
+serwerze Asteriska. Wszystkie wykresy i raporty sÄ… oparte na bazie
 danych CDR.
 
 %package db-mysql
 Summary:	Asterisk-stat DB Driver for MySQL
-Summary(pl):	Sterownik bazy danych MySQL dla Asterisk-stat
+Summary(pl.UTF-8):   Sterownik bazy danych MySQL dla Asterisk-stat
 Group:		Applications/WWW
 Requires:	php(mysql)
 Provides:	%{name}(DB_Driver) = %{version}-%{release}
@@ -56,13 +56,13 @@ Provides:	%{name}(DB_Driver) = %{version}-%{release}
 This virtual package provides MySQL database backend for
 Asterisk-stat.
 
-%description db-mysql -l pl
+%description db-mysql -l pl.UTF-8
 Ten wirtualny pakiet dostarcza backend bazy danych MySQL dla
 Asterisk-stat.
 
 %package db-pgsql
 Summary:	Asterisk-stat DB Driver for PostgreSQL
-Summary(pl):	Sterownik bazy danych PostgreSQL dla Asterisk-stat
+Summary(pl.UTF-8):   Sterownik bazy danych PostgreSQL dla Asterisk-stat
 Group:		Applications/WWW
 Requires:	php(pgsql)
 Provides:	%{name}(DB_Driver) = %{version}-%{release}
@@ -71,7 +71,7 @@ Provides:	%{name}(DB_Driver) = %{version}-%{release}
 This virtual package provides PostgreSQL database backend for
 Asterisk-stat.
 
-%description db-pgsql -l pl
+%description db-pgsql -l pl.UTF-8
 Ten wirtualny pakiet dostarcza backend bazy danych PostgreSQL dla
 Asterisk-stat.
 
