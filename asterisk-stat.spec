@@ -2,7 +2,7 @@
 # - license
 %define		srcversion	2_0_1
 Summary:	Asterisk-Stat: CDR Analyser
-Summary(pl.UTF-8):   Asterisk-Stat: Analizator CDR
+Summary(pl.UTF-8):	Asterisk-Stat: Analizator CDR
 Name:		asterisk-stat
 Version:	2.0.1
 Release:	0.4
@@ -47,7 +47,7 @@ danych CDR.
 
 %package db-mysql
 Summary:	Asterisk-stat DB Driver for MySQL
-Summary(pl.UTF-8):   Sterownik bazy danych MySQL dla Asterisk-stat
+Summary(pl.UTF-8):	Sterownik bazy danych MySQL dla Asterisk-stat
 Group:		Applications/WWW
 Requires:	php(mysql)
 Provides:	%{name}(DB_Driver) = %{version}-%{release}
@@ -62,7 +62,7 @@ Asterisk-stat.
 
 %package db-pgsql
 Summary:	Asterisk-stat DB Driver for PostgreSQL
-Summary(pl.UTF-8):   Sterownik bazy danych PostgreSQL dla Asterisk-stat
+Summary(pl.UTF-8):	Sterownik bazy danych PostgreSQL dla Asterisk-stat
 Group:		Applications/WWW
 Requires:	php(pgsql)
 Provides:	%{name}(DB_Driver) = %{version}-%{release}
