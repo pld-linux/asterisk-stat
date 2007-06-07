@@ -17,6 +17,7 @@ Patch1:		%{name}-jpgraph.patch
 URL:		http://areski.net/asterisk-stat-v2/about.php
 BuildRequires:	rpm-perlprov
 BuildRequires:	rpmbuild(macros) >= 1.264
+BuildRequires:	sed >= 4.0
 Requires:	%{name}(DB_Driver) = %{version}-%{release}
 Requires:	adodb >= 4.67-1.17
 Requires:	jpgraph
